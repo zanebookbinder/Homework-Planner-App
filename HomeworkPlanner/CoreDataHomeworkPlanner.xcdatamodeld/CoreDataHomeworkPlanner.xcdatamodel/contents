@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Class" representedClassName="Class" syncable="YES">
+        <attribute name="classname" attributeType="String"/>
+        <attribute name="tasks" attributeType="Transformable"/>
+        <relationship name="children" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="parent" inverseEntity="Task"/>
+    </entity>
+    <entity name="Task" representedClassName=".ToDoItem" parentEntity="Class" syncable="YES">
+        <attribute name="dueDate" attributeType="String"/>
+        <attribute name="isDone" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isUrgent" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="children" inverseEntity="Class"/>
+    </entity>
+    <elements>
+        <element name="Task" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Class" positionX="-63" positionY="9" width="128" height="88"/>
+    </elements>
+</model>

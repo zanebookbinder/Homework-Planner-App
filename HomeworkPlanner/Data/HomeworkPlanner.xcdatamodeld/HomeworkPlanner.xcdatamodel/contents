@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Class_CD" representedClassName="Class_CD" syncable="YES">
+        <attribute name="class_name" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task_CD" inverseName="class_name" inverseEntity="Task_CD"/>
+    </entity>
+    <entity name="Task_CD" representedClassName="Task_CD" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dueDate" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDone" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isUrgent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="class_name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Class_CD" inverseName="tasks" inverseEntity="Class_CD"/>
+        <relationship name="taskhistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskHistory_CD" inverseName="past_tasks" inverseEntity="TaskHistory_CD"/>
+    </entity>
+    <entity name="TaskHistory_CD" representedClassName="TaskHistory_CD" syncable="YES" codeGenerationType="class">
+        <relationship name="past_tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task_CD" inverseName="taskhistory" inverseEntity="Task_CD"/>
+    </entity>
+    <elements>
+        <element name="Class_CD" positionX="-36" positionY="36" width="128" height="103"/>
+        <element name="Task_CD" positionX="-54.6640625" positionY="-110.015625" width="128" height="163"/>
+        <element name="TaskHistory_CD" positionX="-45" positionY="-9" width="128" height="58"/>
+    </elements>
+</model>
